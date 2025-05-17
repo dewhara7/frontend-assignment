@@ -5,7 +5,7 @@ const CountryCard = ({ country }) => {
 
   return (
     <Link to={`/country/${cca3}`} className="block h-full">
-      <div className="w-full max-w-sm h-[420px] w-[320px] rounded-lg overflow-hidden shadow-lg bg-white dark:bg-gray-800 hover:shadow-xl transition-shadow duration-300">
+      <div className="w-full max-w-sm h-[420px] w-[320px] rounded-lg overflow-hidden shadow-lg bg-white dark:bg-gray-800 hover:shadow-xl transition-shadow duration-300 hover:scale-100">
 
         <img
           src={flags.png}

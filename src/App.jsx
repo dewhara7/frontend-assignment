@@ -8,6 +8,7 @@ import HeroSection from "./components/HeroSection";
 import { getCountryByName, getAllCountries } from "./services/api";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './config/firebase';
+import { signOut } from 'firebase/auth';
 import { Toaster } from 'react-hot-toast';
 import Login from './components/Login';
 import { FaMoon, FaSun } from 'react-icons/fa';
@@ -15,11 +16,20 @@ import { useCountries } from "./context/CountriesContext";
 
 const Header = ({ darkMode, toggleDarkMode }) => {
   const location = useLocation();
+  const [user] = useAuthState(auth);
   
   // Hide header on login page
   if (location.pathname === '/login') {
     return null;
   }
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
+  };
 
   return (
     <header className={`fixed w-full ${darkMode ? 'bg-gray-800/80' : 'bg-white/80'} shadow-md transition-colors duration-200 backdrop-blur-sm z-50`}>
@@ -27,17 +37,31 @@ const Header = ({ darkMode, toggleDarkMode }) => {
         <h1 className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
           Where in the world?
         </h1>
-        <button
-          onClick={toggleDarkMode}
-          className={`flex items-center gap-2 px-4 py-2 rounded-lg ${
-            darkMode 
-              ? 'bg-gray-700 text-white hover:bg-gray-600' 
-              : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
-          } transition-colors duration-200`}
-        >
-          {darkMode ? <FaSun className="h-5 w-5" /> : <FaMoon className="h-5 w-5" />}
-          {darkMode ? 'Light Mode' : 'Dark Mode'}
-        </button>
+        <div className="flex items-center gap-4">
+          <button
+            onClick={toggleDarkMode}
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg ${
+              darkMode 
+                ? 'bg-gray-700 text-white hover:bg-gray-600' 
+                : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+            } transition-colors duration-200`}
+          >
+            {darkMode ? <FaSun className="h-5 w-5" /> : <FaMoon className="h-5 w-5" />}
+            {darkMode ? 'Light Mode' : 'Dark Mode'}
+          </button>
+          {user && (
+            <button
+              onClick={handleLogout}
+              className={`px-4 py-2 rounded-lg ${
+                darkMode
+                  ? 'bg-red-600 text-white hover:bg-red-700'
+                  : 'bg-red-500 text-white hover:bg-red-600'
+              } transition-colors duration-200`}
+            >
+              Logout
+            </button>
+          )}
+        </div>
       </div>
     </header>
   );
