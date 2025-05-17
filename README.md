@@ -1,35 +1,12 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/mNaxAqQD)
+# React + Vite
 
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-# Rest Country App
+Currently, two official plugins are available:
 
-Rest Country App is a React-based web application that displays information about countries using the REST Countries API. It allows users to search for countries by name, filter them by region, and view detailed information about each country.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Overview
+## Expanding the ESLint configuration
 
-This application demonstrates API integration, dynamic data rendering, routing, and responsive UI design. It fetches real-time data from the REST Countries API and presents it in a user-friendly interface.
-
-## API Endpoints Used
-
-- GET /all – Retrieve a list of all countries
-- GET /name/{name} – Search for a country by name
-- GET /region/{region} – Get countries from a specific region
-- GET /alpha/{code} – Get detailed country info using the country code
-
-## Installation and Usage
-
-1. Clone the repository:
-
-
-git clone https://github.com/your-username/rest-country-app.git
-cd rest-country-app
-
-
-**Install dependencies:**
-
-npm install
-
-**Start the development server:**
-
-npm start
-
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
