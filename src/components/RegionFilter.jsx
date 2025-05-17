@@ -10,7 +10,10 @@ const RegionFilter = () => {
       <select
         value={selectedRegion}
         onChange={(e) => setSelectedRegion(e.target.value)}
-        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
+        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md 
+                 bg-white dark:bg-gray-800 text-gray-900 dark:text-white 
+                 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent 
+                 cursor-pointer transition-colors duration-200"
       >
         <option value="">All Regions</option>
         {regions.map((region) => (
