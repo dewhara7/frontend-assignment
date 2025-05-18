@@ -51,7 +51,7 @@ useEffect(() => {
     if (searchQuery) {
       fetchCountries();
     }
-  }, 30); // Add a small delay to prevent too many API calls
+  }, 300); // Add a small delay to prevent too many API calls
 
   return () => clearTimeout(debounceTimer);
 }, [searchQuery, fetchCountries]);

@@ -16,7 +16,8 @@ export const FavoritesProvider = ({ children }) => {
   const [user] = useAuthState(auth);
   const [favorites, setFavorites] = useState([]);
 
-  // Load favorites from localStorage when user changes
+  // Load favorites from localStorage when user changes based on user id
+
   useEffect(() => {
     if (user) {
       const savedFavorites = localStorage.getItem(`favorites_${user.uid}`);

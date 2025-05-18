@@ -39,12 +39,12 @@ const CountryDetail = () => {
   }
 
   return (
-    <div className="min-h-screen pt-24 px-4 sm:px-6 lg:px-8 dark:bg-gray-900">
+    <div className="min-h-screen pt-24 px-4 sm:px-6 lg:px-8 dark:bg-gray-900 ">
       <div className="max-w-7xl mx-auto">
         {/* back button */}
         <button
           onClick={() => navigate(-1)}
-          className="mb-12 px-6 py-2 flex items-center gap-2 bg-white dark:bg-gray-800 shadow-md rounded-md text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
+          className="mb-8 sm:mb-12 px-6 py-2 flex items-center gap-2 bg-white dark:bg-gray-800 shadow-md rounded-md text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200 mt-16 sm:mt-5"
         >
           <FaArrowLeft /> Back
         </button>

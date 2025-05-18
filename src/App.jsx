@@ -43,7 +43,7 @@ const Header = ({ darkMode, toggleDarkMode, onShowFavorites }) => {
     <header
       className={`fixed w-full ${
         darkMode ? "bg-gray-800/80" : "bg-white/80"
-      } shadow-md transition-colors duration-200 backdrop-blur-sm z-50`}
+      } shadow-md transition-colors duration-200 backdrop-blur-sm z-50 `}
     >
       <div className="w-full px-4 py-6 flex justify-between items-center">
         <h1
@@ -56,7 +56,7 @@ const Header = ({ darkMode, toggleDarkMode, onShowFavorites }) => {
         <div className="flex items-center gap-4">
           <button
             onClick={onShowFavorites}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg ${
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg ${
               darkMode
                 ? "bg-gray-700 text-white hover:bg-gray-600"
                 : "bg-gray-100 text-gray-800 hover:bg-gray-200"
@@ -67,7 +67,7 @@ const Header = ({ darkMode, toggleDarkMode, onShowFavorites }) => {
           </button>
           <button
             onClick={toggleDarkMode}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg ${
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg ${
               darkMode
                 ? "bg-gray-700 text-white hover:bg-gray-600"
                 : "bg-gray-100 text-gray-800 hover:bg-gray-200"
@@ -83,7 +83,7 @@ const Header = ({ darkMode, toggleDarkMode, onShowFavorites }) => {
           {user && (
             <button
               onClick={handleLogout}
-              className={`px-4 py-2 rounded-lg ${
+              className={`px-2 py-2 rounded-lg mr-6 ${
                 darkMode
                   ? "bg-red-600 text-white hover:bg-red-700"
                   : "bg-red-500 text-white hover:bg-red-600"
@@ -108,6 +108,8 @@ const Home = () => {
     setSearchInput,
     handleSearch,
   } = useCountries();
+console.log(countries)
+
 
   return (
     <div>
@@ -155,7 +157,7 @@ const Home = () => {
   );
 };
 
-// Protected route wrapper to handle authentication
+// Protected route wrapper to handle authentication 
 const ProtectedRoute = ({ children }) => {
   const [user, loading] = useAuthState(auth);
 
